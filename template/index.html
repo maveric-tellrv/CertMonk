@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CertMonk</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				CertMonk
+			</h3>
+			<br>
+			</br>
+			<div class="row">
+				<div class="col-md-6">
+					<form role="form" action="{{ url_for('recipes.add_recipe') }}" method="post" class="form-inline">
+						<div class="form-group">
+							 
+							<label for="exampleInputFile">
+							File input
+							</label>
+							<input type="file" class="form-control-file" id="exampleInputFile">
+						</div>
+						<button type="submit" class="btn btn-primary">
+							Submit
+						</button>
+					</form>
+				</div>
+				<div class="col-md-5">
+					<div class="dropdown">
+						 
+						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+							Select OpenStack Version
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							 <a class="dropdown-item disabled" href="#">Something</a> <a class="dropdown-item" href="#">Another Something</a> <a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			</br>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Tempest Test list
+						</th>
+						<th>
+							Test After Regex
+						</th>
+						<th>
+							Missing Tests
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				    {% for test,result,missing in result.iteritems() %}
+         
+						<tr>
+						   <td> {{ test }} </td>
+						   <td> {{ result }} </td>
+						   <td> {{ missing }} </td>
+						</tr>
+				
+					{% endfor %}
+					<tr>
+						<td>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
